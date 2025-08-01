@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* New gradient color scheme */
+  --primary: 216 78% 69%; /* #D84E89 */
+  --accent: 23 93% 64%; /* #F3735D */
+  --background: 0 0% 100%; /* #FFFFFF */
+  --foreground: 0 0% 3.9%; /* #0A0A0A */
+  --muted: 0 0% 96.1%; /* #F5F5F5 */
+  --muted-foreground: 0 0% 45.1%; /* #737373 */
+  --border: 0 0% 89.8%; /* #E5E5E5 */
+  --input: 0 0% 89.8%; /* #E5E5E5 */
+  --ring: 216 78% 69%; /* #D84E89 */
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%; /* #0F172A */
+  --foreground: 210 40% 98%; /* #F8FAFC */
+  --muted: 217.2 32.6% 17.5%; /* #1E293B */
+  --muted-foreground: 215 20.2% 65.1%; /* #94A3B8 */
+  --border: 217.2 32.6% 17.5%; /* #1E293B */
+  --input: 217.2 32.6% 17.5%; /* #1E293B */
+  --ring: 216 78% 69%; /* #D84E89 */
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  color: hsl(var(--foreground));
+  background: #f8f9fa; /* Very light gray background */
+  font-family: Inter, sans-serif;
+}
+
+/* Gradient backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, #D84E89 0%, #F3735D 100%);
+}
+
+.gradient-primary-soft {
+  background: linear-gradient(135deg, rgb(216 78 137 / 10%) 0%, rgb(243 115 93 / 10%) 100%);
+}
+
+/* Auto text color based on background */
+.text-auto-contrast {
+  color: white;
+}
+
+/* Smooth transitions */
+.transition-all {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent));
+}
+
+/* Hero Banner Responsive Styles */
+.hero-banner-responsive {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain; /* Maintain aspect ratio without cropping content */
+  display: block;
+  margin: 0 auto;
+}
+
+/* Mobile responsiveness for hero banner (screens up to 768px wide) */
+@media (width <= 768px) {
+  .hero-banner-responsive {
+    max-height: 250px;
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Preserve text readability on mobile */
+  }
+}
+
+/* Additional responsive adjustments for very small screens */
+@media (width <= 480px) {
+  .hero-banner-responsive {
+    max-height: 200px;
+    padding: 0 8px; /* Add slight padding to prevent edge cutoff */
+  }
+}
+
+/* Legacy hero-banner class for backward compatibility */
+.hero-banner {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (width <= 768px) {
+  .hero-banner {
+    max-height: 250px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
